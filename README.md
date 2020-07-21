@@ -1,3 +1,3 @@
 # sparshvrao.github.io
 
-This is for my first web designing project.
+This is for web designing projects.
