@@ -220,7 +220,7 @@ html body{
 	animation: change-gradient 10s ease-in infinite;
 }
 
-.footer-description{
+/*.footer-description{
 	color: #ffffff;
 	margin: 0;
 	font-size: 12px;
@@ -231,7 +231,7 @@ html body{
 	margin-top:70px;
 }
 /* Result */
-.results{
+/*.results{
     padding: 30px 0 0;
 	flex: 1 0 auto;
 	font-family:serif;
@@ -284,7 +284,7 @@ html body{
 }
 
 /* table  */
-
+/*
 table.dataframe, .dataframe th, .dataframe td {
   border: none;
   border-bottom: 1px solid #C8C8C8;
@@ -312,6 +312,7 @@ tr:hover            { background-color: #ffff99;}
 
 
 /*home button*/
+/*
 .home_rank{
 top:0px;
 left:0px;
@@ -320,6 +321,7 @@ margin-top: 60px;
 margin-left: 15px;
 }
 /* logo */
+/*
 .jss-logo{
  margin:-100px 0px 10px 10px;
  z-index:200;
@@ -328,7 +330,7 @@ margin-left: 15px;
  float:left;
 }
 /* spacing between developed by and office */
-.spacing_names{
+/*.spacing_names{
 margin-top:230px;
 }
 
@@ -354,9 +356,9 @@ margin-top:230px;
   position: relative;
   display: inline-block;
 }
-
+*/
 .spread{
-	min-width:54rem;
+	min-width:45rem;
 }
 
 .dropdown-content {
@@ -400,8 +402,8 @@ margin-top:230px;
 table{
 	border-collapse: collapse;
 	border-spacing:0;
-	width: 75%;
-	min-width:410px;
+	width: 65%;
+	min-width:200px;
 	margin: auto;	
 	border-radius: 20px 20px 20px 20px;
 	overflow:hidden;
@@ -489,6 +491,7 @@ table tbody tr th:first-child{
 .col{
 	align-items: center;
 	min-width: 60rem;
+	max-width:fit-content;
 	display: inline-block;
 }
 .card{
