@@ -71,14 +71,15 @@ table{
         margin-top:0.5rem;
         border-radius: 10px;
         border:1px solid gold;
+        
         transition-property: background-color;
         transition-timing-function: linear;
         transition-duration: 0.5s ;
 
     }
     [class^="btn"]:hover{
-        color:white !important;
-        background: linear-gradient(to right,rgb(255, 145, 0),rgb(102, 255, 0),rgb(0, 162, 255));
+        color:rgb(155, 4, 155) !important;
+        background: linear-gradient(to right,rgb(150, 241, 3),rgb(255, 230, 0));
         animation: change-gradient 2s ease-in-out infinite;
         
     }
