@@ -20,22 +20,30 @@
         var nextel = row.nextElementSibling;
         var table = row.parentNode;
         if(nextel!=null && nextel.children.length==1 && nextel.style.display!="none"){
-            nextel.style.display="none";
+            var extra=document.getElementById("added");
+            if(extra){
+            extra.parentNode.removeChild(extra);
+            }
         }else{
             console.log(spancol(row));
             adddiv(row);
         }
     } 
     function adddiv(row){
+        
+        var extra=document.getElementById("added");
+        if(extra){
+        extra.parentNode.removeChild(extra);
+        }
         var index = nodeindex(row);
         var data = row;
         var col  = spancol(row);
         console.log(col);
-        data.outerHTML +=  `<tr>
+        data.outerHTML +=  `<tr id="added">
                         <td colspan="`+col+`" class="tile">
                         <div class="contents">
-                        <button class="btn1" >Preview <i class="fa fa-eye"></i></button>
-                        <button class="btn2" onclick="btnclick(this)">Download <i class="fa fa-download"></i></button>
+                        <a class="btn1" >Preview <i class="fa fa-eye"></i></a>
+                        <a class="btn2" onclick="btnclick(this)">Download <i class="fa fa-download"></i></a>
                         </div>
                         </td>
                     </tr>`;
