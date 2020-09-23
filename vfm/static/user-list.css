@@ -1,0 +1,166 @@
+*{
+    align-self: center;
+    justify-content: center;
+    text-align: center;
+    margin:0;
+    padding:0;
+    
+
+}
+
+/*Navigation*/
+
+nav{
+    padding:2rem 0 2rem 0;
+    max-width: width re;
+}
+
+label{
+    float:left;
+    margin-top:10px;
+}
+
+
+/*Search*/
+
+input[type="search"]{
+    margin:2px;
+    padding:8px;
+    border-radius: 20px;
+    text-align: left;
+}
+
+
+/*Table*/
+
+table{
+    
+    border-collapse: collapse;
+    width:100%;
+    table-layout: auto;
+
+
+}
+
+    /*Content data*/
+
+
+    [class^="btn"]{
+        background-color: white;
+        min-width:30%;
+        height:2rem;
+        border-radius: 10px;
+        border:1px solid gold;
+        background-image:linear-gradient(to bottom,#f19800,#f18904);
+
+        transition-property: background-color;
+        transition-timing-function: linear;
+        transition-duration: 0.5s ;
+        animation: change-gradient 2s ease-in-out infinite;
+
+
+    }
+    [class^="btn"]:hover{
+        color:rgb(247, 238, 247) !important;
+        background: linear-gradient(to top,rgb(20, 212, 3),rgb(72, 255, 0)); 
+        opacity:1 !important;
+    }
+
+    [class^="btn"]:active{
+        color:rgb(247, 238, 247) !important;
+        background: linear-gradient(to top,rgb(23, 241, 3),rgb(72, 255, 0)) !important; 
+        opacity: 0.75;
+    }
+
+th,td{
+    padding:10px;
+    border:1px solid #cccccc;
+    text-transform: uppercase;
+    text-align: center;
+}
+th{
+    min-width:10%;
+    background-image:linear-gradient(to bottom,#f19800,#f18904);
+    opacity:0.9;
+    color:white;
+}
+
+td,tr{
+    border:0 solid blue !important;
+}
+
+.chrow:nth-child(odd){  
+    background-color: rgb(253, 237, 206) !important;
+}
+
+
+.chrow:hover{
+    margin:0;
+    padding:0;
+    background-image: linear-gradient(to bottom,#f19800,#f3cd05);
+    opacity:0.75;
+    color:white;
+}
+
+#myTable_paginate > ul > li > a{
+    color:black !important;
+    opacity:0.7;
+}
+
+#myTable_paginate > ul > li.paginate_button.page-item.active > a{
+    background-image:linear-gradient(to bottom,#f19800,#f18904);
+    border:1px solid orange;
+    color:white !important;
+    opacity:0.9 !important;
+    
+}
+
+.page-link:hover{
+    background-image:linear-gradient(to bottom,#f19800,#f18904);
+    opacity: 1 !important;
+
+}
+
+.Add{
+    position:fixed;
+    top:80%;
+    left:7%;
+    font-size: 2rem !important;
+    padding-top: 10px;
+    padding-bottom:10px;
+    padding-left:17px;
+    padding-right: 50px;
+    width:70px;
+    border-radius:7rem ;
+    background-color: orangered;
+    overflow:hidden;
+    color:rgb(245, 247, 248);
+    outline:none;
+    
+    }
+.Add:hover{
+    width:30%;
+    transition: 0.5s;
+    color:white;
+
+
+}
+.Add:focus{
+    border-width: 2px;
+    outline:none;
+
+}
+
+
+@media (max-width:1000px){
+
+    .col, .col-1, .col-10, .col-11, .col-12, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-auto, .col-lg, .col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-auto, .col-md, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-auto, .col-sm, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-auto, .col-xl, .col-xl-1, .col-xl-10, .col-xl-11, .col-xl-12, .col-xl-2, .col-xl-3, .col-xl-4, .col-xl-5, .col-xl-6, .col-xl-7, .col-xl-8, .col-xl-9, .col-xl-auto {
+        width:unset !important;
+    }
+    #myTable_wrapper > div:nth-child(2) > div{
+        width:100% !important;
+    }
+    .Add:hover{
+        width:60%;
+    }
+}
