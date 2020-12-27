@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/icon" href="imgs\imgbin_zCS_icon.ico">
+    <link rel="stylesheet" type="text/css" href="css\style.css">
+    <title>Bus Reservation System</title>
+    <script>
+        function valid(){
+            var phoneno = /^\d{10}$/;
+            var name=document.getElementById("name").value; 
+            var password=document.getElementById('pass').value;
+            var p=document.getElementById("pn").value;
+            var e=document.getElementById("email").value;
+            var a=document.getElementById("age").value;
+            var mailformat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+            if(!e.match(mailformat)){
+                alert("You have entered an invalid email address!");
+                return;
+            }
+            if(password.length<6){  
+                alert("Password must be at least 6 characters long.");return;  
+            }
+            if (name==null || name==""){  
+                 alert("Name can't be blank");return; 
+            }
+            if(!(p.match(phoneno))){
+                alert("Incorrect Phone Number");return;
+            }
+            if(a<13){
+                alert("age must be greater than 13");return;
+            }
+            sub();
+        }
+        function sub(){
+            var n=document.getElementById("name").value;
+            var e=document.getElementById("email").value;
+            var g=document.getElementsByName("gender");
+            for(var i = 0; i < g.length; i++) { 
+                if(g[i].checked){
+                    j=i;break;
+                }else{
+                    j=-1;
+                }
+            }
+            if(j==-1)
+                alert("Select gender")
+            var p=document.getElementById("pn").value;
+            var a=document.getElementById("age").value;
+            var pass=document.getElementById('pass').value;
+            var req= new XMLHttpRequest();
+            req.onreadystatechange=
+            function(){
+                if(this.readyState==4 && this.status==200){
+                    //document.getElementById('Lform').innerHTML=this.responseText;
+                    alert(this.responseText);
+                    if(this.responseText=='Records inserted successfully.')
+                        window.location.reload();
+                }
+            };
+            req.open("POST","php/signup.php",true);
+            req.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+            req.send("name="+n+"&email="+e+"&gender="+g[j].value+"&pn="+p+"&age="+a+"&pass="+pass);
+        }
+    </script>
+</head>
+<body id="signup">
+    <div id="homeheader">
+        <img src="imgs\jss.png" alt="Loading.....">
+        <ul>
+            <li><a href="login.html">Login</a></li>
+            <li><a href="signup.html">Signup</a></li>
+            <li><a href="home.html">Home</a></li>
+        </ul>
+    </div>
+    <div id="content">
+        <div id="sign">
+        <div id="Sform" >
+            <form id="f">
+            <label for="email">Email :</label>
+            <input type="text" id="email" name="email" pattern="[a-zA-Z0-9]+@[a-z]+\.[a-z]+" placeholder="email.." required>
+            <label for="pass">Password :</label>
+            <input type="password" id="pass" name="pass" placeholder="password" required>
+            <label for="name">Name :</label>
+            <input type="text" id="name" name="name" placeholder="Your name.." required><br><br>
+            <label for="gender">Gender : </label>
+            <input type="radio" id="male" name="gender" value="male" required>male
+            <input type="radio" id="female" name="gender" value="female" required>female
+            <input type="radio" id="unknown" name="gender" value="unknown" required>unknown<br><br>
+            <label for="pn">Phone No :</label>
+            <input type="number" min="1000000000" max="9999999999" id="pn" name="pn" placeholder="Phone No" required>
+            <label for="age">Age :</label>
+            <input type="number" id="age" min="12" max="120" name="age" placeholder="age" required>
+            <input type="button"  value="Submit" onclick="valid()">
+        </form>
+    </div>
+    </div>
+</div>
+</body>
+</html>

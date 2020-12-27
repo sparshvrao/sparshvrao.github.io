@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/icon" href="imgs\imgbin_zCS_icon.ico">
+    <link rel="stylesheet" type="text/css" href="css\style.css">
+    <title>Bus Reservation System</title>
+    <script>
+        var bsid,dtime,atime,fare,o,d,date;  
+        var url=new URLSearchParams(location.search);
+        var email=url.get('email');
+        function sub(){
+            o=document.getElementById('ori').value;
+            d=document.getElementById('destn').value;
+            var today=new Date();
+            date = document.getElementById('date').value;
+            tdate= new Date(date);
+            if(tdate<=today){
+                alert("Please Enter Date Greater Than Today's date");
+            }else{
+            document.getElementById('details').style.display="block";
+            document.getElementById('map').style.display="none";
+            var req= new XMLHttpRequest();
+            req.onreadystatechange=function(){
+                if(this.readyState==4 && this.status==200){
+                    document.getElementById("details").innerHTML=this.responseText;
+                }
+            };
+            req.open("GET","php/getdetails.php?o="+o+"&d="+d,true);
+            req.send();
+            }
+        } 
+        function table(a){
+                document.getElementById('seats').style.display='block';
+                document.getElementById('formb').style.width='18%';                
+                var b=/<\/?td>/;var c;
+                c=a.innerHTML.split(b);
+                bsid=c[1];
+                dtime=time(c[3]);
+                atime=time(c[5]);
+                fare=c[7];
+                //alert(bsid+" "+dtime+" "+atime+" "+fare);
+                var req=new XMLHttpRequest();
+                req.onreadystatechange=function(){
+                    if(this.readyState==4 && this.status==200){
+                        document.getElementById('flex').innerHTML=this.responseText;
+                    }
+                };
+                req.open("GET","php/getseats.php?bsid="+bsid+"&dtime="+dtime+"&atime="+atime+"&fare="+fare+"&date="+date,true);
+                req.send();
+                function time(t){
+                    var nt;
+                    var dt=t.split(/:| /);
+                    if(dt[2] == "PM"){
+                        nt=(parseInt((dt[0])))+12+":"+dt[1]+":00";
+                    }else{
+                        nt=dt[0]+":"+dt[1]+":00";
+                    }
+                    return nt;
+                }
+        }
+
+        function checkList(){
+            var a=document.getElementsByName('n');
+            var b =[];
+            var j=0;
+            for(var i=0;i<a.length;i++){
+                if(a[i].checked==true)
+                    b[j++]=a[i].value;
+            }
+            return b;
+        }
+
+        function cap(a){
+            a.value=a.value.toUpperCase();
+        }
+
+        function seats(){
+            var b=checkList();
+            var c=confirm("Booked seat No : "+b+"\nFrom : "+o+"\nTo : "+d+"\nFare : "+fare+"\nDate : "+date+
+                           "\nTotal amount : "+(fare*b.length));
+            if(c === true){
+                var req=new XMLHttpRequest();
+                document.getElementById('seats').style.display='none';
+                document.getElementById('formb').style.display='none';
+                document.getElementById('details').style.display='none';
+                document.getElementById('msg').style.display='block';
+                req.onreadystatechange=function(){
+                    if(this.readyState==4 && this.status==200){
+                        document.getElementById('mt').innerHTML=this.responseText;
+                    }
+                };
+                req.open("GET","php/insertticket.php?bsid="+bsid+"&dtime="+dtime+"&atime="+atime+"&fare="+fare+
+                            "&date="+date+"&email="+email+"&seatNo="+b+"&o="+o+"&d="+d,true);
+                req.send();
+            }
+        }
+        //--------------
+        function show(){
+            document.getElementById('mnav').classList.toggle('d5');
+        }
+        function hide(){
+            document.getElementById('mnav').classList.remove('d5');
+        }
+    </script>
+</head>
+<body>
+    <div id="container">
+        <div id="header">
+        <div id="burger" onclick="show()"><div class="bar"></div><div class="bar"></div><div class="bar"></div></div>
+        <img src="imgs\jss.png" alt="pls wait" height="80px"><h1><i>Bus Reservation System</i></h1></div> 
+        <div id="wall" onclick="hide()"><div id="fade">
+            <div id="mnav" class="d1">
+                <nav style="list-style-type:none;">
+                <a href="home.html"><li>Home</li></a>
+                <a onclick="(location.href='book.html?email='+email)"><li>Book Ticket</li></a>
+                <a onclick="(location.href='rdetails.html?email='+email)"><li>Reservation Details</li></a>
+                <a onclick="(location.href='cancelt.html?email='+email)"><li>Cancel Ticket</li></a>
+                </nav>
+            </div>
+            <div id="formb">
+            <form action="">
+                <label for="Email">Email</label>
+                <input type="text" id="email" name="email" placeholder="email" disabled>
+                <label for="date">Date</label>
+                <input type="date" id="date" name="date">
+                <label for="ori">Origin</label>
+                <input type="text" id="ori" name="ori" placeholder="Origin" onchange="cap(this)">
+                <label for="destn">Destination</label>
+                <input type="text" id="destn" name="destn" placeholder="Destination" onchange="cap(this)">
+                <input type="button" onclick="sub()" value="Get Bus Details">
+            </form>
+        </div>
+        <div id="map">
+            <img src="imgs\map.png" alt="Loading...">
+        </div>
+        <div id="details">
+        </div>
+        <div id="seats">
+            <div id="flex"></div>
+            <div id="sum"></div>
+            <input type="button" value="submit" onclick="seats()">
+        </div>
+        <div id="msg">
+            <div id="mt"></div>
+            <input type="button" value="Book another ticket" onclick="(location.href='book.html?email='+email)">
+        </div>
+        </div></div>
+        <div id="nav">
+            <nav style="list-style-type:none;">
+                <a href="home.html"><li>Home</li></a>
+                <a onclick="(location.href='book.html?email='+email)"><li>Book Ticket</li></a>
+                <a onclick="(location.href='rdetails.html?email='+email)"><li>Reservation Details</li></a>
+                <a onclick="(location.href='cancelt.html?email='+email)"><li>Cancel Ticket</li></a>
+            </nav>
+        </div>
+    </div>
+</body>
+<script>
+    document.getElementById('email').value=email;
+    var sum=0;
+    document.querySelector("#flex").addEventListener("change", function(){
+    var x= checkList(); 
+    document.getElementById("sum").innerHTML = "Total amt :"+fare*x.length;
+    });
+</script>
+</html>

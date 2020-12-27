@@ -1,0 +1,450 @@
+html,body,#container{margin:0;padding:0;overflow: auto;}
+
+html, body{
+    height: 100%;
+}
+
+#header{
+    height: 80px;
+    background-color: #f26b35;
+    background-image: linear-gradient(to right,rgb(255 255 255) 20%,#f26b35 40%);
+    padding: 5px;
+}
+
+#header h1{
+    float: right;
+    margin-right: 5%;
+    color: #ffffff;
+}
+#wall{
+    width: 85%;
+    margin-left: 15%;
+    float: left;
+    height: 531.281px;
+    background-image: url("https://image.freepik.com/free-vector/bus-stop-with-sign-timetable-city-background-with-skyscrapers_136277-98.jpg");
+    background-color: #daebf8;
+    background-size:100% 100%;
+}
+#nav{
+    float: left;
+    width: 15%;
+    background-color:#f26b35 ;
+    background-image: linear-gradient(#f26b35 30%,#fbd0bf);
+    height: 531.281px;
+    margin-left: -100%;  
+}
+.d1{
+    display: none;
+    width: 60%;
+    height: 100%;
+    background-color:#f26b35 ;
+    background-image: linear-gradient(#f26b35 30%,#fbd0bf);
+    position: fixed;
+}
+#fade{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff59;
+}
+
+#formb{
+    background-color: #ffffffd9;
+    width: 25%;
+    height: 62%;
+    border-radius: 20px;
+    box-shadow:8px 8px 18px #888888;
+    padding: 20px;
+    min-width: 210px;
+}
+#details{
+    display: none;
+    background-color: #ffffffd9;
+    width: 40%;
+    height: 62%;
+    border-radius: 20px;
+    box-shadow:8px 8px 18px #888888;
+    padding: 20px;
+    margin-left: 8px;
+    overflow: auto;
+}
+
+table{
+    border-collapse: collapse;
+    width: 100%;
+}
+th{
+    background-color: #537898;
+    color: white;
+    font-weight: lighter;
+}
+tr:nth-child(odd){
+    background-color: #80808054;
+}
+#tbody>tr:hover{
+    box-shadow: 3px 3px 5px rgb(68, 65, 65);
+}
+#tbody>tr:focus{
+    outline: none;
+    box-shadow: 4px 4px 8px black;
+}
+table,td,th{
+    border:2px solid gray ;
+    padding: 5px 5px;
+}
+
+#seats{
+    display: none;
+    background-color: #ffffffd9;
+    width: 15%;
+    height: 62%;
+    border-radius: 20px;
+    box-shadow:8px 8px 18px #888888;
+    padding: 20px;
+    margin-left: 8px;
+}
+#flex{
+    height: 90%;
+    width: 100%;
+    background-color: wheat;
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 2px;
+    flex-direction: column;
+}
+
+#sum{
+    height: 10%;
+    width: 60%;
+    background-color:khaki;
+    float: left;
+    padding: 5px 0px 2px 5px;
+    box-sizing: border-box;
+}
+input[type=checkbox]{
+    display: none;
+}
+#seats>input[type=button]{
+    width: 40%;
+    height: 10%;
+    margin: 0px;
+    padding: 2px;
+}
+#flex>label{
+    display: block;
+    width: 16%;
+    height: 7%;
+    background-color: rgb(8, 189, 32);
+    margin: 2px;
+    text-align: center;
+    padding: 2px;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+#flex>input:checked + label{
+    border: solid 1px black;
+    color: white;
+    background-color:rgb(185, 96, 44) ;
+}
+#flex>div{
+    width: 16%;
+    height: 7%;
+    background-color: rgb(11, 121, 211);
+    color: white;
+    margin: 2px;
+    text-align: center;
+    padding: 2px;
+    box-sizing: border-box;
+}
+
+#map{
+    background-color: #ffffffd9;
+    width: 25%;
+    height: 66%;
+    border-radius: 20px;
+    box-shadow:8px 8px 18px #888888;
+    padding: 10px;
+    margin-left: 8px;
+}
+#map>img{
+    background-color: #ffffffd9;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+}
+#msg{
+    display: none;
+    background-color: #ffffffd9;
+    width: 95%;
+    height: 50%;
+    border-radius: 20px;
+    box-shadow:8px 8px 18px #888888;
+    padding: 15px;
+}
+#msg>input[type=button]{
+    width: 153px;
+    height: 35px;
+    margin: 0px;
+    padding: 2px;
+    float: right;
+}
+#mt{
+    width: 100%;
+    height: 85%;
+    margin-bottom: 5px;
+    overflow:auto;
+}
+
+a{
+    text-decoration: none;
+}
+#nav li,#mnav li{
+    margin: 10% 15%;
+    text-align: center;
+    padding: 8px 8px;
+    color: #185572;
+    font-weight: bold;
+    background-color: #ffffff;
+    border:1px solid #185572;
+    border-radius: 100px;
+    transition: 0.5s background-color;
+}
+#nav li:hover,#mnav li:hover{
+    background-color: #d8f8f7;
+}
+input[type=text], select,input[type=date],input[type=password]{
+    width: 100%;
+    padding: 11px 20px;
+    margin: 5px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=number]{
+    width: 38%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+input[type=submit],input[type=button]{
+    width: 100%;
+    background-color: #537898;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type=submit]:hover,input[type=button]:hover {
+    background-color: #12506e;
+}
+
+/* home */
+
+#homeheader{
+    height:13%;
+    background-color: #1c1c1c;
+    background-image: linear-gradient(to right,rgb(255 255 255),#1c1c1c 50%);
+    padding: 15px;
+    box-sizing: border-box;
+}
+#content{
+    height:87%;
+    width: 100%;
+    background-image:linear-gradient(45deg,#1c1c1c 50%,rgb(255 255 255) 70%);
+    background-color: #1c1c1c;
+}
+
+#content>pre{
+    margin: 0px;
+    color: white;
+    font-size: 450%;
+    font-weight: bolder;
+    font-style: italic;
+    font-family: Snell Roundhand;
+    width: 50%;
+    float: left;
+    position: relative;
+    top :40%;
+    margin-left:80px ;
+}
+
+#content img{
+    width: 30%;
+    height: 25%;
+    float: right;
+    margin: 10px 10px 0px 0px;
+}
+#homeheader li{
+    width: 10%;
+    height: 100%;
+    float : right;
+    color: white;
+
+}
+#homeheader a:visited{
+    background-color: #ffffff38;
+}
+#homeheader a:hover{
+    background-color: #ffffff38;
+}
+#homeheader a:active{
+    background-color: #ffffff38;
+}
+#homeheader ul{
+    list-style-type:none;
+    margin:0;
+    padding: 0;
+    height: 100%;
+    display: inline;
+}
+
+#homeheader a{
+    display:block;
+    font-style: none;
+    color: white;
+    height: 100%;
+    width: 100%;
+    font-size: 20px;
+    padding: 15px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+
+#content #sign{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#signup #homeheader{
+    height:15%;
+    background-color: #1c1c1c;
+    background-image: linear-gradient(to right,rgb(255 255 255) 20%,#1c1c1c 40%);
+    padding: 5px;
+    box-sizing: border-box;
+}
+#signup #content{
+    height:85%;
+    width: 100%;
+    background-image:linear-gradient(45deg,#1c1c1c 50%,rgb(255 255 255) 70%);
+    background-color: #1c1c1c;
+}
+
+#signup #homeheader li{
+    width: 10%;
+    height: 100%;
+    padding: 15px 0px;
+    float : right;
+    color: white;
+    box-sizing: border-box;
+}
+
+#Sform{
+    background-color: #ffffffd9;
+    width: 40%;
+    height: 69%;
+    border-radius: 4%;
+    box-shadow:8px 8px 18px #888888;
+    padding: 20px;
+}
+#Lform{
+    background-color: #ffffffd9;
+    width: 30%;
+    height: 38%;
+    border-radius: 4%;
+    box-shadow:8px 8px 18px #888888;
+    padding: 20px;
+}
+#Lform p{
+    margin: 2px 0px;
+    text-decoration: underline;
+}
+#Lform p:hover{
+    cursor: pointer;
+}
+#change{
+    display: none;
+    background-color: #ffffffd9;
+    width: 30%;
+    height: 48%;
+    border-radius: 4%;
+    box-shadow:8px 8px 18px #888888;
+    padding: 20px;
+}
+#homeheader img{
+    height: 100%;
+}
+#burger{
+    display: none;
+}
+
+#rdetails{
+    background-color: #ffffffd9;
+    width: 290px;
+    height: 371px;
+    border-radius: 4%;
+    box-shadow:8px 8px 18px #888888;
+    padding: 20px;
+    box-sizing: border-box;
+}
+#cancelt{
+    background-color: #ffffffd9;
+    width: 500px;
+    height: 150px;
+    border-radius: 4%;
+    box-shadow:8px 8px 18px #888888;
+    padding: 20px;
+    box-sizing: border-box;
+}
+#inp{
+    height: 11%;
+    width: 100%;
+}
+#cancelt input[type=text]{
+    width: 180px;
+    height: 33px;
+    margin: 0px;
+}
+#cancelt input[type=button]{
+    width: 108px;
+    height: 32px;
+    float: right;
+    line-height: 5px;
+    margin: 0px;
+}
+#rdetails input[type=text]{
+    width: 50%;
+    height: 33px;
+    margin: 0px;
+}
+#rdetails input[type=button]{
+    width: 30%;
+    height: 32px;
+    float: right;
+    line-height: 5px;
+    margin: 0px;
+}
+#det{
+    height: 89%;
+    width: 100%;
+    margin-top:5px;
+    box-sizing: border-box;
+    overflow: auto;
+}
+#det th{
+    width: 50%;
+}
+

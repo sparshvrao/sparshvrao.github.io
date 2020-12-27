@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/icon" href="imgs\imgbin_zCS_icon.ico">
+    <link rel="stylesheet" type="text/css" href="css\style.css">
+    <title>Bus Reservation System</title>
+    <script>
+        function sub(){
+            var e=document.getElementById("email").value;
+            var pass=document.getElementById('pass').value;
+            var req= new XMLHttpRequest();
+            req.onreadystatechange=
+            function(){
+                if(this.readyState==4 && this.status==200){
+                    if(this.responseText=='Invalid Email or Password\nPlease Signup before Login')
+                    alert(this.responseText);
+                    else window.location.href=this.responseText
+                }
+            };
+            req.open("POST","php/login.php",true);
+            req.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+            req.send("email="+e+"&pass="+pass);
+        }
+        function dis(){
+            document.getElementById("change").style.display='block';
+            document.getElementById("Lform").style.display='none';
+        }
+        function change(){
+            var e=document.getElementById("cemail").value;
+            var opass=document.getElementById('opass').value;
+            var npass=document.getElementById('npass').value;
+            var req= new XMLHttpRequest();
+            req.onreadystatechange=
+            function(){
+                if(this.readyState==4 && this.status==200){
+                    alert(this.responseText);
+                }
+            };
+            req.open("POST","php/changepass.php",true);
+            req.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+            req.send("email="+e+"&opass="+opass+"&npass="+npass);
+        }
+    </script>
+</head>
+<body id="signup">
+    <div id="homeheader">
+        <img src="imgs\jss.png" alt="Loading.....">
+        <ul>
+            <li><a href="login.html">Login</a></li>
+            <li><a href="signup.html">Signup</a></li>
+            <li><a href="home.html">Home</a></li>
+        </ul>
+    </div>
+    <div id="content">
+        <div id="sign">
+        <div id="Lform" >
+            <form id="f">
+            <label for="email">Email :</label>
+            <input type="text" id="email" name="email" pattern="[a-zA-Z0-9]+@[a-z]+\.[a-z]+" placeholder="email.." required>
+            <label for="pass">Password :</label>
+            <input type="password" id="pass" name="pass" placeholder="password">
+            <input type="button"  value="Login" onclick="sub()">
+            <p onclick="dis()">change password</p>
+        </form>
+    </div>
+    <div id="change">
+        <form>
+        <label for="cemail">Email :</label>
+        <input type="text" id="cemail" name="email" pattern="[a-zA-Z0-9]+@[a-z]+\.[a-z]+" placeholder="email.." required>
+        <label for="pass">Enter Old Password :</label>
+        <input type="password" id="opass" name="opass" placeholder="old password">
+        <label for="pass">Enter New Password :</label>
+        <input type="password" id="npass" name="npass" placeholder="new password">
+        <input type="button"  value="Change password" onclick="change()">
+    </form>
+</div>
+    </div>
+</div>
+</body>
+</html>

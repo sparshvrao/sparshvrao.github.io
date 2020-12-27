@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/icon" href="imgs\imgbin_zCS_icon.ico">
+    <link rel="stylesheet" type="text/css" href="css\style.css">
+    <title>Bus Reservation System</title>
+    <script>
+        function get(){
+            var tid=document.getElementById('tid').value;
+            var req= new XMLHttpRequest();
+            req.onreadystatechange=function(){
+                if(this.readyState==4 && this.status==200){
+                    document.getElementById("det").innerHTML=this.responseText;
+                }
+            };
+            req.open("GET","php/rdetails.php?email="+email+"&tid="+tid,true);
+            req.send();
+        }
+        function show(){
+            document.getElementById('mnav').classList.toggle('d5');
+        }
+        function hide(){
+            document.getElementById('mnav').classList.remove('d5');
+        }
+    </script>
+</head>
+<body>
+    <div id="container">
+        <div id="header">
+        <div id="burger" onclick="show()"><div class="bar"></div><div class="bar"></div><div class="bar"></div></div>
+        <img src="imgs\jss.png" alt="pls wait" height="80px"><h1><i>Bus Reservation System</i></h1></div> 
+        <div id="wall" onclick="hide()"><div id="fade">
+            <div id="mnav" class="d1">
+                <nav style="list-style-type:none;">
+                    <a href="home.html"><li>Home</li></a>
+                    <a onclick="(location.href='book.html?email='+email)"><li>Book Ticket</li></a>
+                    <a onclick="(location.href='rdetails.html?email='+email)"><li>Reservation Details</li></a>
+                    <a onclick="(location.href='cancelt.html?email='+email)"><li>Cancel Ticket</li></a>
+                </nav>
+            </div>
+            <div id="rdetails">
+                <div id="inp">Tid:<input type="text" id="tid"/><input type="button" value="Get" onclick="get()"/></div>
+                <div id="det">
+                </div>
+            </div>
+        </div></div>
+        <div id="nav">
+            <nav style="list-style-type:none;">
+                <a href="home.html"><li>Home</li></a>
+                <a onclick="(location.href='book.html?email='+email)"><li>Book Ticket</li></a>
+                <a onclick="(location.href='rdetails.html?email='+email)"><li>Reservation Details</li></a>
+                <a onclick="(location.href='cancelt.html?email='+email)"><li>Cancel Ticket</li></a>
+            </nav>
+        </div>
+    </div>
+    <script>
+        var url=new URLSearchParams(location.search);
+        var email=url.get('email');
+    </script>
+</body>
