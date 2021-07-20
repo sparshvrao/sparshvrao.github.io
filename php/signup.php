@@ -1,6 +1,6 @@
 <?php
 
-$mysqli = new mysqli("localhost", "root", "", "busrs");
+$mysqli = new mysqli("database-1.cb97xqdugwtw.us-east-2.rds.amazonaws.com", "admin", "busreservation", "busreservation");
  
 if($mysqli === false){
     die("ERROR: Could not connect. " . $mysqli->connect_error);
